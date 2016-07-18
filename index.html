@@ -35,10 +35,11 @@ class ImprovedFighter extends Fighter {
 
 let fight = (fighter, improvedFighter, ...points) => {
   let point = points;
-
-  fighter.hit(improvedFighter, randomPointCalc(point));
-  improvedFighter.hit(fighter, randomPointCalc(point));
-
+  if(fighter.health > 0 && improvedFighter.health > 0) {
+    fighter.hit(improvedFighter, randomPointCalc(point));
+    improvedFighter.hit(fighter, randomPointCalc(point));
+  }
+  
   if(fighter.health <= 0 || improvedFighter.health <= 0) {
     if(fighter.health <= 0) {
       console.log(fighter.name + " is dead!");
