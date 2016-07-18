@@ -39,13 +39,13 @@ let fight = (fighter, improvedFighter, ...points) => {
   fighter.hit(improvedFighter, randomPointCalc(point));
   improvedFighter.hit(fighter, randomPointCalc(point));
 
-   if(fighter.health <= 0) {
-    console.log(fighter.name + " is dead!");
-  }
-
-  if(improvedFighter.health <= 0) {
-    console.log(`${improvedFighter.name} is dead!`);
-    return;
+  if(fighter.health <= 0 || improvedFighter.health <= 0) {
+    if(fighter.health <= 0) {
+      console.log(fighter.name + " is dead!");
+    }
+    if(improvedFighter.health <= 0) {
+      console.log(improvedFighter.name + " is dead!");
+    }
   }
 }
 
